@@ -71,7 +71,7 @@ async function getAllProducts() {
       _id,
       nameEn,
       nameHa,
-      slug,
+      slug.current,
       brand,
       category,
       condition,
@@ -109,7 +109,7 @@ async function getFeaturedProducts() {
       _id,
       nameEn,
       nameHa,
-      slug,
+      slug.current,
       brand,
       category,
       condition,
@@ -144,11 +144,11 @@ async function getFeaturedProducts() {
  */
 async function getProductBySlug(slug) {
   const query = `
-    *[_type == "product" && slug == $slug][0] {
+    *[_type == "product" && slug.current == $slug][0] {
       _id,
       nameEn,
       nameHa,
-      slug,
+      slug.current,
       brand,
       category,
       condition,
@@ -188,7 +188,7 @@ async function getRelatedProducts(category, currentId) {
       _id,
       nameEn,
       nameHa,
-      slug,
+      slug.current,
       brand,
       category,
       condition,

@@ -97,7 +97,7 @@ function renderProductCard(product) {
   return `
     <div class="product-card">
       <div class="product-card-image">
-        <a href="product.html?slug=${product.slug}">
+        <a href="product.html?slug=${product.slug.current}">
           <img src="${imageUrl}" alt="${name}" loading="lazy">
         </a>
         <span class="badge badge-brand">${product.brand}</span>
@@ -106,7 +106,7 @@ function renderProductCard(product) {
       </div>
       <div class="product-card-body">
         <h3 class="product-card-title">
-          <a href="product.html?slug=${product.slug}">${name}</a>
+          <a href="product.html?slug=${product.slug.current}">${name}</a>
         </h3>
         <p class="product-card-brand">${product.brand}</p>
         <p class="product-card-price">
