@@ -9,7 +9,7 @@ const config = {
   whatsappNumber: '2348100037050',
   whatsappDisplay: '+234 810 003 7050',
   phone: '+2348100037050',
-  address: 'Shop Number 00, Taushi Plaza, Birnin Kebbi, Kebbi State, Nigeria',
+  address: 'Shop No 6 Taushi Plaza (Head Office) | Shop A6 Gimbiya Plaza (Second Branch), Birnin Kebbi, Kebbi State, Nigeria',
   workingHours: 'Mon-Sat 8AM-8PM',
   currency: '₦',
   sanity: {

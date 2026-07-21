@@ -52,7 +52,7 @@ store/
 
 ### Contact Information
 - **WhatsApp**: +234 810 003 7050
-- **Address**: Shop Number 00, Taushi Plaza, Birnin Kebbi, Kebbi State, Nigeria
+- **Address**: Shop No 6 Taushi Plaza (Head Office) | Shop A6 Gimbiya Plaza (Second Branch), Birnin Kebbi, Kebbi State, Nigeria
 - **Hours**: Mon-Sat 8AM-8PM
 
 ## Setup Instructions

@@ -149,7 +149,7 @@ function checkoutWhatsApp() {
   });
   
   message += `\n💰 Total: ${formatNaira(cart.total)}`;
-  message += `\n📍 Pickup: Taushi Plaza, Birnin Kebbi (Free)`;
+  message += `\n📍 Pickup: Shop No 6 Taushi Plaza (Head Office) | Shop A6 Gimbiya Plaza (Second Branch), Birnin Kebbi (Free)`;
   message += `\n🚚 Delivery: Nationwide — Please share your address for delivery quote`;
   message += `\n💳 Payment: Bank Transfer | Cash on Delivery (Local)`;
   message += `\n✅ Please confirm availability and payment method.`;
