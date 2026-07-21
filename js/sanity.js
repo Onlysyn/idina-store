@@ -31,16 +31,17 @@ function urlFor(imageRef, width = 800) {
 /**
  * Execute GROQ query against Sanity API
  * @param {string} query - GROQ query string
+ * @param {object} params - Query parameters
  * @returns {Promise<object>} Query results
  */
-async function fetchSanity(query) {
+async function fetchSanity(query, params = {}) {
   try {
     const response = await fetch(`${SANITY_API_URL}/data/query/${SANITY_DATASET}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ query }),
+      body: JSON.stringify({ query, params }),
     });
     
     if (!response.ok) {
@@ -162,7 +163,7 @@ async function getProductBySlug(slug) {
   `;
   
   try {
-    const result = await fetchSanity(query);
+    const result = await fetchSanity(query, { slug });
     return result || null;
   } catch (error) {
     console.error('Error fetching product by slug:', error);
@@ -202,7 +203,7 @@ async function getRelatedProducts(category, currentId) {
   `;
   
   try {
-    const result = await fetchSanity(query);
+    const result = await fetchSanity(query, { category, currentId });
     return result || [];
   } catch (error) {
     console.error('Error fetching related products:', error);
