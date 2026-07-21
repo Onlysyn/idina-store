@@ -1,7 +1,7 @@
 {
   "buildCommand": "echo 'Static site'",
   "outputDirectory": ".",
-  "framework": "html",
+  "framework": "vite",
   "cleanUrls": true,
   "headers": [
     {
