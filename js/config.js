@@ -13,7 +13,7 @@ const config = {
   workingHours: 'Mon-Sat 8AM-8PM',
   currency: '₦',
   sanity: {
-    projectId: 'kwzovmjy',
+    projectId: 'fsabm48m',
     dataset: 'production',
     apiVersion: '2024-01-01'
   }
