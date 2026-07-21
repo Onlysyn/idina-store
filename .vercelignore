@@ -1,0 +1,9 @@
+idina-sanity-studio/
+.sanity/
+sanity.cli.ts
+sanity.config.ts
+tsconfig.json
+package.json
+package-lock.json
+node_modules/
+.git/

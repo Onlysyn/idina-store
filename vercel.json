@@ -1,4 +1,7 @@
 {
+  "buildCommand": "echo 'Static site'",
+  "outputDirectory": ".",
+  "framework": "html",
   "cleanUrls": true,
   "headers": [
     {
@@ -26,6 +29,16 @@
           "value": "public, max-age=31536000, immutable"
         }
       ]
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*\\.html)",
+      "dest": "/$1"
+    },
+    {
+      "src": "/(?!.*\\.)",
+      "dest": "/index.html"
     }
   ]
 }
