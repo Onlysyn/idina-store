@@ -46,7 +46,7 @@ store/
 ## Configuration
 
 ### Sanity CMS
-- **Project ID**: `fsabm48m`
+- **Project ID**: `kwzovmjy`
 - **Dataset**: `production`
 - **API Version**: `2024-01-01`
 

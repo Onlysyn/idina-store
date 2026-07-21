@@ -7,7 +7,7 @@ export default defineConfig({
   name: 'default',
   title: 'Idina Mobile Planet',
 
-  projectId: 'fsabm48m',
+  projectId: 'kwzovmjy',
   dataset: 'production',
 
   plugins: [structureTool(), visionTool()],
