@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test Sanity Connection</title>
+</head>
+<body>
+  <h1>Sanity API Test</h1>
+  <div id="results"></div>
+  
+  <script>
+    const SANITY_PROJECT_ID = 'kwzovmjy';
+    const SANITY_DATASET = 'production';
+    const SANITY_API_VERSION = '2024-01-01';
+    const SANITY_API_URL = `https://${SANITY_PROJECT_ID}.api.sanity.io/v${SANITY_API_VERSION}`;
+    
+    async function testSanity() {
+      const query = `*[_type == "product"] | order(_createdAt desc) {_id, nameEn, slug, brand, category, price, stock, featured, hasVariants}`;
+      
+      try {
+        console.log('Fetching from:', `${SANITY_API_URL}/data/query/${SANITY_DATASET}`);
+        console.log('Query:', query);
+        
+        const response = await fetch(`${SANITY_API_URL}/data/query/${SANITY_DATASET}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ query }),
+        });
+        
+        console.log('Response status:', response.status);
+        console.log('Response headers:', response.headers);
+        
+        if (!response.ok) {
+          const errorText = await response.text();
+          throw new Error(`Sanity API error: ${response.status} - ${errorText}`);
+        }
+        
+        const data = await response.json();
+        const results = document.getElementById('results');
+        
+        if (data.result && data.result.length > 0) {
+          results.innerHTML = `
+            <h2>Success! Found ${data.result.length} products:</h2>
+            <pre>${JSON.stringify(data.result, null, 2)}</pre>
+          `;
+        } else {
+          results.innerHTML = '<h2>No products found in Sanity</h2><p>Make sure you have published products in Sanity Studio.</p>';
+        }
+      } catch (error) {
+        const results = document.getElementById('results');
+        results.innerHTML = `
+          <h2>Error:</h2>
+          <pre>${error.message}</pre>
+          <h3>Debug Info:</h3>
+          <p>Project ID: ${SANITY_PROJECT_ID}</p>
+          <p>Dataset: ${SANITY_DATASET}</p>
+          <p>API Version: ${SANITY_API_VERSION}</p>
+          <p>API URL: ${SANITY_API_URL}</p>
+        `;
+        console.error('Sanity fetch error:', error);
+      }
+    }
+    
+    testSanity();
+  </script>
+</body>
+</html>

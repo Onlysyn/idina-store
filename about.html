@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Idina Mobile Planet</title>
+  <meta name="description" content="Learn about Idina Mobile Planet - Your trusted mobile store in Birnin Kebbi, Kebbi State. Our story, mission, and commitment to quality.">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="About Us - Idina Mobile Planet">
+  <meta property="og:description" content="Learn about Idina Mobile Planet - Your trusted mobile store in Birnin Kebbi.">
+  <meta property="og:image" content="https://idina-mobile-planet.vercel.app/assets/og-image.png">
+  <meta property="og:url" content="https://idina-mobile-planet.vercel.app/about.html">
+  <meta property="og:type" content="website">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About Us - Idina Mobile Planet">
+  <meta name="twitter:description" content="Learn about Idina Mobile Planet - Your trusted mobile store in Birnin Kebbi.">
+  
+  <link rel="canonical" href="https://idina-mobile-planet.vercel.app/about.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪐</text></svg>">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="navbar-logo">
+        🪐 Idina Mobile Planet
+      </a>
+      
+      <div class="navbar-menu">
+        <a href="index.html" class="navbar-link" data-i18n="nav.home">Home</a>
+        <a href="shop.html" class="navbar-link" data-i18n="nav.shop">Shop</a>
+        <a href="about.html" class="navbar-link" data-i18n="nav.about">About</a>
+        <a href="contact.html" class="navbar-link" data-i18n="nav.contact">Contact</a>
+      </div>
+      
+      <div class="navbar-actions">
+        <div class="search-container">
+          <input type="text" id="globalSearch" placeholder="Search products..." data-i18n="nav.searchPlaceholder">
+          <button class="search-btn" id="searchBtn">🔍</button>
+        </div>
+        <div class="lang-toggle">
+          <button class="lang-btn" id="langEN">EN</button>
+          <button class="lang-btn" id="langHA">HA</button>
+        </div>
+        <a href="cart.html" class="cart-link">
+          🛒
+          <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+        <button class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- About Section -->
+  <main>
+    <section class="section">
+      <h1 class="section-title" data-i18n="about.title">About Idina Mobile Planet</h1>
+      
+      <div style="background-color: var(--bg-elevated); padding: 32px; border-radius: var(--radius); margin-bottom: 32px;">
+        <h2 style="font-size: 24px; font-weight: 700; color: var(--gold); margin-bottom: 16px;" data-i18n="about.story">Our Story</h2>
+        <p style="color: var(--gray-300); line-height: 1.8;" data-i18n="about.storyText">
+          Idina Mobile Planet has been serving the Birnin Kebbi community with quality mobile devices and accessories. We believe in providing genuine products at fair prices with excellent customer service.
+        </p>
+      </div>
+      
+      <div style="background-color: var(--bg-elevated); padding: 32px; border-radius: var(--radius); margin-bottom: 32px;">
+        <h2 style="font-size: 24px; font-weight: 700; color: var(--gold); margin-bottom: 16px;" data-i18n="about.mission">Our Mission</h2>
+        <p style="color: var(--gray-300); line-height: 1.8;" data-i18n="about.missionText">
+          To be the most trusted mobile store in Kebbi State by offering original products, competitive prices, and outstanding customer support through WhatsApp and in-store service.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Why Choose Us -->
+    <section class="section">
+      <h2 class="section-title" data-i18n="sections.whyUs">Why Choose Us</h2>
+      <div class="why-us-grid">
+        <div class="why-card">
+          <div class="why-card-icon">✅</div>
+          <h3 class="why-card-title" data-i18n="whyUs.original.title">100% Original</h3>
+          <p class="why-card-desc" data-i18n="whyUs.original.desc">Genuine products with warranty</p>
+        </div>
+        <div class="why-card">
+          <div class="why-card-icon">💰</div>
+          <h3 class="why-card-title" data-i18n="whyUs.prices.title">Best Prices</h3>
+          <p class="why-card-desc" data-i18n="whyUs.prices.desc">Competitive prices in Kebbi</p>
+        </div>
+        <div class="why-card">
+          <div class="why-card-icon">💳</div>
+          <h3 class="why-card-title" data-i18n="whyUs.payment.title">Flexible Payment</h3>
+          <p class="why-card-desc" data-i18n="whyUs.payment.desc">Bank transfer or cash on delivery</p>
+        </div>
+        <div class="why-card">
+          <div class="why-card-icon">💬</div>
+          <h3 class="why-card-title" data-i18n="whyUs.support.title">WhatsApp Support</h3>
+          <p class="why-card-desc" data-i18n="whyUs.support.desc">Quick responses via WhatsApp</p>
+        </div>
+        <div class="why-card">
+          <div class="why-card-icon">🏪</div>
+          <h3 class="why-card-title" data-i18n="whyUs.visit.title">Visit Store</h3>
+          <p class="why-card-desc" data-i18n="whyUs.visit.desc">See products at Taushi Plaza</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- WhatsApp CTA Banner -->
+    <div class="wa-cta-banner">
+      <h2 data-i18n="contact.sendUs">Send us a message on WhatsApp</h2>
+      <p>We're ready to help you find the perfect mobile device!</p>
+      <a href="#" class="btn btn-whatsapp" id="ctaWhatsApp">💬 Chat on WhatsApp</a>
+    </div>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>🪐 Idina Mobile Planet</h3>
+        <p style="color: var(--gray-300); margin-bottom: 16px;">Your trusted mobile store in Birnin Kebbi, Kebbi State.</p>
+      </div>
+      <div class="footer-section">
+        <h3 data-i18n="footer.quickLinks">Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+          <li><a href="shop.html" data-i18n="nav.shop">Shop</a></li>
+          <li><a href="about.html" data-i18n="nav.about">About</a></li>
+          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3 data-i18n="footer.contact">Contact</h3>
+        <div class="footer-contact">
+          <p>📍 Shop Number 00, Taushi Plaza, Birnin Kebbi, Kebbi State, Nigeria</p>
+          <p>💬 <a href="#" id="footerWhatsApp">+234 810 003 7050</a></p>
+          <p>🕐 Mon-Sat 8AM-8PM</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-i18n="footer.copyright">© 2024 Idina Mobile Planet. All rights reserved.</p>
+    </div>
+  </footer>
+  
+  <!-- Floating WhatsApp Button -->
+  <a href="#" class="fab-whatsapp" id="fabWhatsApp" data-tooltip="Chat on WhatsApp">💬</a>
+  
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop">↑</button>
+  
+  <!-- Quick View Modal -->
+  <div class="quick-view-modal" id="quickViewModal">
+    <div class="quick-view-overlay" id="quickViewOverlay"></div>
+    <div class="quick-view-content">
+      <button class="quick-view-close" id="quickViewClose">×</button>
+      <div class="quick-view-loading">
+        <div class="skeleton-image"></div>
+        <div class="skeleton-text"></div>
+        <div class="skeleton-text"></div>
+      </div>
+      <div class="quick-view-body" id="quickViewBody"></div>
+    </div>
+  </div>
+  
+  <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/sanity.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
