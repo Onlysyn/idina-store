@@ -103,9 +103,6 @@ function renderProductCard(product) {
         <span class="badge badge-brand">${product.brand}</span>
         ${stockBadge}
         ${saleBadge}
-        <button class="quick-view-btn" onclick="openQuickView('${product._id}')" title="Quick View">
-          👁️
-        </button>
       </div>
       <div class="product-card-body">
         <h3 class="product-card-title">

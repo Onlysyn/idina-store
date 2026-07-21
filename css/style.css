@@ -1700,12 +1700,12 @@ input, select, textarea {
   }
 
   .search-container {
-    width: 100%;
-    max-width: none;
+    flex: 1;
+    max-width: 200px;
   }
 
   .search-container input {
-    max-width: none;
+    max-width: 150px;
   }
 
   .lang-toggle {
@@ -1790,5 +1790,33 @@ input, select, textarea {
   
   .contact-grid {
     grid-template-columns: 1fr;
+  }
+  
+  /* Search bar responsive */
+  .search-container {
+    max-width: 150px;
+  }
+  
+  .search-container input {
+    max-width: 100px;
+    font-size: 13px;
+  }
+  
+  .search-btn {
+    font-size: 14px;
+  }
+  
+  /* Navbar responsive */
+  .navbar-actions {
+    gap: 8px;
+  }
+  
+  .lang-btn {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+  
+  .cart-link {
+    font-size: 20px;
   }
 }

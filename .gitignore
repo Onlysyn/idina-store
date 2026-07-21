@@ -1,1 +1,28 @@
+# Dependencies
 node_modules
+
+# Sanity Studio build files
+dist
+.cache
+sanity.config.ts
+
+# Sanity Studio (optional - remove if you want to deploy it too)
+idina-sanity-studio
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Test files
+test-sanity.html
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
