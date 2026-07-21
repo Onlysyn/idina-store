@@ -36,9 +36,6 @@ function urlFor(imageRef, width = 800) {
  */
 async function fetchSanity(query, params = {}) {
   try {
-    console.log('Sanity query:', query);
-    console.log('Sanity params:', params);
-    
     const response = await fetch(`${SANITY_API_URL}/data/query/${SANITY_DATASET}`, {
       method: 'POST',
       headers: {
