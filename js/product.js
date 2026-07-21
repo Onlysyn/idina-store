@@ -298,30 +298,36 @@ function updateVariantDisplay(variant) {
   const stockEl = document.getElementById('productStock');
   const qtyInput = document.getElementById('quantity');
   
+  if (!priceEl) return;
+  
   // Update price
   priceEl.textContent = formatNaira(variant.price);
   
   // Update sale display
   const onSale = variant.comparePrice && variant.comparePrice > variant.price;
-  if (onSale) {
+  if (onSale && compareEl && saveEl) {
     compareEl.textContent = formatNaira(variant.comparePrice);
     compareEl.style.display = 'inline';
     const saveAmount = variant.comparePrice - variant.price;
     saveEl.textContent = t('product.save', { amount: formatNaira(saveAmount) });
     saveEl.style.display = 'inline-block';
-  } else {
+  } else if (compareEl && saveEl) {
     compareEl.style.display = 'none';
     saveEl.style.display = 'none';
   }
   
   // Update stock
-  stockEl.textContent = variant.stock > 0 ? t('product.inStock') : t('product.outOfStock');
-  stockEl.className = `product-stock ${variant.stock > 0 ? 'in-stock' : 'out-of-stock'}`;
+  if (stockEl) {
+    stockEl.textContent = variant.stock > 0 ? t('product.inStock') : t('product.outOfStock');
+    stockEl.className = `product-stock ${variant.stock > 0 ? 'in-stock' : 'out-of-stock'}`;
+  }
   
   // Update quantity max
-  qtyInput.max = variant.stock;
-  if (parseInt(qtyInput.value) > variant.stock) {
-    qtyInput.value = variant.stock;
+  if (qtyInput) {
+    qtyInput.max = variant.stock;
+    if (parseInt(qtyInput.value) > variant.stock) {
+      qtyInput.value = variant.stock;
+    }
   }
 }
 
