@@ -31,6 +31,10 @@ async function loadProduct() {
       return;
     }
     
+    console.log('Product loaded:', product);
+    console.log('Has variants:', product.hasVariants);
+    console.log('Variants:', product.variants);
+    
     currentProduct = product;
     populateProduct(product);
     loadRelatedProducts(product);
