@@ -1739,11 +1739,11 @@ input, select, textarea {
 @media (max-width: 1024px) {
   .shop-layout {
     grid-template-columns: 1fr;
+    gap: 24px;
   }
   
   .filters {
-    position: relative;
-    top: 0;
+    position: static;
   }
   
   .product-detail {
@@ -1840,8 +1840,28 @@ input, select, textarea {
 }
 
 @media (max-width: 640px) {
+  .shop-layout {
+    padding: 20px 16px;
+    gap: 20px;
+  }
+  
+  .filters {
+    padding: 16px;
+  }
+  
+  .shop-main h1 {
+    font-size: 24px !important;
+    margin-bottom: 16px !important;
+  }
+  
+  .shop-main #resultsCount {
+    font-size: 14px !important;
+    margin-bottom: 16px !important;
+  }
+  
   .products-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
   
   .categories-grid {
@@ -1850,6 +1870,7 @@ input, select, textarea {
   
   .categories-grid-large {
     grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
   
   .why-us-grid {
