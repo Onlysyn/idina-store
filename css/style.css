@@ -441,16 +441,19 @@ input, select, textarea {
 
 /* ===== PRODUCT CARD ===== */
 .product-card {
-  background-color: var(--white);
+  background-color: var(--bg-elevated);
+  border: 2px solid var(--gray-700);
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow-md);
   transition: var(--transition);
   position: relative;
+  cursor: pointer;
 }
 
 .product-card:hover {
   transform: translateY(-8px);
+  border-color: var(--gold);
   box-shadow: var(--shadow-lg);
 }
 
@@ -521,8 +524,9 @@ input, select, textarea {
 .badge-brand {
   top: 12px;
   left: 12px;
-  background-color: var(--bg-elevated);
+  background-color: var(--bg-darker);
   color: var(--gold);
+  border: 1px solid var(--gold);
 }
 
 .badge-in {
