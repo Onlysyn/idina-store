@@ -22,13 +22,27 @@ function urlFor(imageRef, width = 800) {
   if (!ref) return '';
   
   // Ensure ref is a string before calling match
-  if (typeof ref !== 'string') return '';
+  if (typeof ref !== 'string') {
+    console.error('urlFor: ref is not a string', ref);
+    return '';
+  }
   
-  // Parse Sanity image reference: image-<id>-<dimensions>-<format>
-  const [, id, dimensions, format] = ref.match(/image-([a-f0-9]+)-(\d+x\d+)-(\w+)/) || [];
-  if (!id) return '';
-  
-  return `https://cdn.sanity.io/images/${SANITY_PROJECT_ID}/${SANITY_DATASET}/${id}-${dimensions}.${format}?w=${width}&auto=format&q=80`;
+  try {
+    // Parse Sanity image reference: image-<id>-<dimensions>-<format>
+    const match = ref.match(/image-([a-f0-9]+)-(\d+x\d+)-(\w+)/);
+    if (!match) {
+      console.error('urlFor: ref does not match expected pattern', ref);
+      return '';
+    }
+    
+    const [, id, dimensions, format] = match;
+    if (!id) return '';
+    
+    return `https://cdn.sanity.io/images/${SANITY_PROJECT_ID}/${SANITY_DATASET}/${id}-${dimensions}.${format}?w=${width}&auto=format&q=80`;
+  } catch (error) {
+    console.error('urlFor error:', error, 'ref:', ref);
+    return '';
+  }
 }
 
 /**
