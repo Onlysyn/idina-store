@@ -78,7 +78,13 @@ function initBackToTop() {
 function renderProductCard(product) {
   const lang = getCurrentLanguage();
   const name = lang === 'ha' && product.nameHa ? product.nameHa : product.nameEn;
-  const imageUrl = urlFor(product.images?.[0], 400) || '';
+  let imageUrl = urlFor(product.images?.[0], 400) || '';
+  
+  // Fallback image if URL is empty
+  if (!imageUrl) {
+    imageUrl = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23141A2E"/><text x="50" y="50" text-anchor="middle" dy=".3em" fill="%23F59E0B" font-size="20">📱</text></svg>';
+  }
+  
   const onSale = product.comparePrice && product.comparePrice > product.price;
   const discountPercent = onSale ? Math.round((1 - product.price / product.comparePrice) * 100) : 0;
   
@@ -98,7 +104,7 @@ function renderProductCard(product) {
     <div class="product-card">
       <div class="product-card-image">
         <a href="product.html?slug=${product.slug.current}">
-          <img src="${imageUrl}" alt="${name}" loading="lazy">
+          <img src="${imageUrl}" alt="${name}" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%23141A2E%22/><text x=%2250%22 y=%2250%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23F59E0B%22 font-size=%2220%22>📱</text></svg>'">
         </a>
         <span class="badge badge-brand">${product.brand}</span>
         ${stockBadge}

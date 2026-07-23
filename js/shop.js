@@ -145,20 +145,38 @@ function renderProducts() {
   });
   resultsCount.textContent = countText;
   
-  // Render product cards
-  const productsHtml = filteredProducts.map(product => renderProductCard(product)).join('');
-  productsGrid.innerHTML = productsHtml;
-  
-  // Apply translations to newly added elements
-  applyTranslations();
-  
-  // Add click handlers for add to cart buttons
-  filteredProducts.forEach(product => {
-    const cartBtn = productsGrid.querySelector(`button[onclick="addToCartFromCard('${product._id}')"]`);
-    if (cartBtn) {
-      cartBtn.onclick = () => {
-        addToCart(product, 1);
-      };
-    }
-  });
+  try {
+    // Render product cards with error handling
+    const productsHtml = filteredProducts.map(product => {
+      try {
+        return renderProductCard(product);
+      } catch (error) {
+        console.error('Error rendering product card:', product, error);
+        return ''; // Skip this product if it fails to render
+      }
+    }).join('');
+    
+    productsGrid.innerHTML = productsHtml;
+    
+    // Apply translations to newly added elements
+    applyTranslations();
+    
+    // Add click handlers for add to cart buttons
+    filteredProducts.forEach(product => {
+      const cartBtn = productsGrid.querySelector(`button[onclick="addToCartFromCard('${product._id}')"]`);
+      if (cartBtn) {
+        cartBtn.onclick = () => {
+          addToCart(product, 1);
+        };
+      }
+    });
+  } catch (error) {
+    console.error('Error rendering products:', error);
+    productsGrid.innerHTML = `
+      <div class="empty-state">
+        <div class="empty-state-icon">⚠️</div>
+        <p>Error loading products. Please try again later.</p>
+      </div>
+    `;
+  }
 }
