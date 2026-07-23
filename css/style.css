@@ -957,6 +957,13 @@ input, select, textarea {
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 24px;
   width: 100%;
+  min-height: 200px;
+}
+
+@media (max-width: 640px) {
+  .shop-main .products-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
 }
 
 /* ===== FILTERS SIDEBAR ===== */
@@ -1866,6 +1873,11 @@ input, select, textarea {
   .products-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
+    min-height: 200px;
+  }
+  
+  .shop-main .products-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
   }
   
   .categories-grid {
