@@ -28,17 +28,30 @@ function urlFor(imageRef, width = 800) {
   }
   
   try {
-    // Parse Sanity image reference: image-<id>-<dimensions>-<format>
-    const match = ref.match(/image-([a-f0-9]+)-(\d+x\d+)-(\w+)/);
-    if (!match) {
-      console.error('urlFor: ref does not match expected pattern', ref);
-      return '';
+    // Try different Sanity image reference patterns
+    // Pattern 1: image-<id>-<dimensions>-<format>
+    let match = ref.match(/image-([a-f0-9]+)-(\d+x\d+)-(\w+)/);
+    if (match) {
+      const [, id, dimensions, format] = match;
+      return `https://cdn.sanity.io/images/${SANITY_PROJECT_ID}/${SANITY_DATASET}/${id}-${dimensions}.${format}?w=${width}&auto=format&q=80`;
     }
     
-    const [, id, dimensions, format] = match;
-    if (!id) return '';
+    // Pattern 2: image-<id>-<format> (without dimensions)
+    match = ref.match(/image-([a-f0-9]+)-(\w+)/);
+    if (match) {
+      const [, id, format] = match;
+      return `https://cdn.sanity.io/images/${SANITY_PROJECT_ID}/${SANITY_DATASET}/${id}.${format}?w=${width}&auto=format&q=80`;
+    }
     
-    return `https://cdn.sanity.io/images/${SANITY_PROJECT_ID}/${SANITY_DATASET}/${id}-${dimensions}.${format}?w=${width}&auto=format&q=80`;
+    // Pattern 3: Just an ID
+    match = ref.match(/([a-f0-9]+)/);
+    if (match) {
+      const id = match[1];
+      return `https://cdn.sanity.io/images/${SANITY_PROJECT_ID}/${SANITY_DATASET}/${id}?w=${width}&auto=format&q=80`;
+    }
+    
+    console.error('urlFor: ref does not match any known pattern', ref);
+    return '';
   } catch (error) {
     console.error('urlFor error:', error, 'ref:', ref);
     return '';
