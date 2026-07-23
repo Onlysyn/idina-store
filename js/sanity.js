@@ -21,6 +21,9 @@ function urlFor(imageRef, width = 800) {
   const ref = imageRef.asset?._ref || imageRef;
   if (!ref) return '';
   
+  // Ensure ref is a string before calling match
+  if (typeof ref !== 'string') return '';
+  
   // Parse Sanity image reference: image-<id>-<dimensions>-<format>
   const [, id, dimensions, format] = ref.match(/image-([a-f0-9]+)-(\d+x\d+)-(\w+)/) || [];
   if (!id) return '';
