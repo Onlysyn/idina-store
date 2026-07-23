@@ -27,6 +27,8 @@ const TRANSLATIONS = {
       related: 'Related Products'
     },
     categories: {
+      title: 'Browse Categories',
+      subtitle: 'Find what you\'re looking for',
       phones: 'Phones',
       chargers: 'Chargers',
       earbuds: 'Earbuds',
@@ -154,6 +156,8 @@ const TRANSLATIONS = {
       related: 'Samfuran Da Suke Da Alaka'
     },
     categories: {
+      title: 'Duba Rukunai',
+      subtitle: 'Ka nemi abin da kake so',
       phones: 'Wayoyi',
       chargers: 'Masu Cajin',
       earbuds: 'Na\'urar Jin Sauti',
