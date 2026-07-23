@@ -7,6 +7,7 @@ let allProducts = [];
 let filteredProducts = [];
 
 document.addEventListener('DOMContentLoaded', () => {
+  console.log('Shop page loaded, loading all products...');
   loadAllProducts();
   initFilters();
 });
@@ -16,7 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
  */
 async function loadAllProducts() {
   try {
+    console.log('Fetching all products...');
     allProducts = await getAllProducts();
+    console.log('All products fetched:', allProducts);
     applyFilters();
   } catch (error) {
     console.error('Error loading products:', error);

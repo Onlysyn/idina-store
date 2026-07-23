@@ -4,6 +4,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  console.log('Home page loaded, loading featured products...');
   loadFeaturedProducts();
 });
 
@@ -12,7 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
  */
 async function loadFeaturedProducts() {
   const featuredGrid = document.getElementById('featuredGrid');
-  if (!featuredGrid) return;
+  if (!featuredGrid) {
+    console.error('featuredGrid element not found');
+    return;
+  }
   
   // Show loading state
   featuredGrid.innerHTML = `
@@ -22,7 +26,9 @@ async function loadFeaturedProducts() {
   `;
   
   try {
+    console.log('Fetching featured products...');
     const products = await getFeaturedProducts();
+    console.log('Featured products fetched:', products);
     
     if (!products || products.length === 0) {
       featuredGrid.innerHTML = `
@@ -37,8 +43,16 @@ async function loadFeaturedProducts() {
     // Store products for cart functionality
     window.featuredProducts = products;
     
-    // Render product cards
-    const productsHtml = products.map(product => renderProductCard(product)).join('');
+    // Render product cards with error handling
+    const productsHtml = products.map(product => {
+      try {
+        return renderProductCard(product);
+      } catch (error) {
+        console.error('Error rendering product card:', product, error);
+        return '';
+      }
+    }).join('');
+    
     featuredGrid.innerHTML = productsHtml;
     
     // Apply translations to newly added elements
