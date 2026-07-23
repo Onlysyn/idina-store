@@ -1800,6 +1800,10 @@ input, select, textarea {
     grid-template-columns: repeat(2, 1fr);
   }
   
+  .categories-grid-large {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
   .why-us-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1828,7 +1832,11 @@ input, select, textarea {
   }
   
   .categories-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .categories-grid-large {
+    grid-template-columns: repeat(2, 1fr);
   }
   
   .why-us-grid {
